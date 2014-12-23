@@ -6,8 +6,7 @@
 
 package com.mycompany.mavenforpresent.present;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -19,7 +18,6 @@ public abstract class Present {
     private String card;
     private String chocolate;
     private String bike;
-    private List<String> contents = new ArrayList<>();
 
     public void setPresentName(String name) {
         presentName = name;
@@ -37,10 +35,6 @@ public abstract class Present {
         this.bike = bike;
     }
     
-    public void addPresent(String present) {
-        contents.add(present);
-    }
-    
     public void creating() {
         //System.out.println("Гномы готовятся собирать " + presentName);
         System.out.println("Dwarves are preparing to gather " + presentName);
@@ -54,10 +48,8 @@ public abstract class Present {
         //System.out.println("Подбирают украшения...");
         System.out.println("Pick up decorations...");
         
-        for (int i = 0; i < contents.size(); i++)
-        {
-            System.out.print("   " + contents.get(i));
-        }
+        System.out.print("   " + presentName);
+
         //System.out.println(" подготавливается следующим образом: ");
         System.out.println(" is prepared following way: ");
     }
@@ -70,5 +62,32 @@ public abstract class Present {
     @Override
     public String toString() {
         return presentName;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if(obj==null)
+            return false;
+        if(this==obj)
+            return true;
+        if(obj instanceof Present ) {
+            Present temp=(Present)obj;
+            return this.presentName.equals(temp.presentName) &&
+                    this.card.equals(temp.card) &&
+                    this.chocolate.equals(temp.chocolate) &&
+                    this.bike.equals(temp.bike);          
+        }
+        else 
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 23 * hash + Objects.hashCode(this.presentName);
+        hash = 23 * hash + Objects.hashCode(this.card);
+        hash = 23 * hash + Objects.hashCode(this.chocolate);
+        hash = 23 * hash + Objects.hashCode(this.bike);
+        return hash;
     }
 }

@@ -6,8 +6,6 @@
 
 package com.mycompany.mavenforpresent.present;
 
-import com.mycompany.mavenforpresent.behavior.BehaviorCONST;
-
 /**
  *
  * @author Admin
@@ -26,7 +24,6 @@ public class ForPerfectChildPresent extends Present {
         super.setBike("Mountain bicycle");
 
         //contents.add("Подарок для непослушного ребёнка");
-        super.addPresent(BehaviorCONST.PERFECT);
     }
     @Override
     public void drawingCard() {

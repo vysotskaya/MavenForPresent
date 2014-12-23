@@ -10,7 +10,7 @@ package com.mycompany.mavenforpresent.behavior;
  *
  * @author Admin
  */
-public class BehaviorCONST {
+final public class BehaviorCONST {
     
     public static final String GOOD = "Gift for an obedient child";
     public static final String BAD = "Gift for a disobedient child";
